@@ -4,45 +4,87 @@ import { fetchTours } from '@/services/tours'
 import { fetchDrivers } from '@/services/drivers'
 import { ref, onMounted } from 'vue'
 
-
 export default {
     setup() {
         let tours = ref<Tour[]>([])
         let drivers = ref<Driver[]>([])
 
-        const getAssignedDriverNameForTour = (driverId: number | null): string => {
-            return drivers.value.find(driver => driver.id === driverId)?.name ?? '---';
-        }
+        const tourForms = ref<Tour[]>([]);
 
         onMounted(async () => {
             try {
                 tours.value = await fetchTours();
                 drivers.value = await fetchDrivers();
+                tours.value.forEach(tour => tourForms.value.push({
+                    id: tour.id,
+                    customer: tour.customer,
+                    shipmentDate: tour.shipmentDate,
+                    locationFrom: tour.locationFrom,
+                    locationTo: tour.locationTo,
+                    assignedDriver: {
+                        id: tour.id,
+                        name: tour.assignedDriver.name
+                    },
+                }))
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         });
+        
+        const deleteTourForm = (tourFormId: number) => {
+            tourForms.value = tourForms.value.filter(tourForm => tourForm.id !== tourFormId);
+        };
+
+        const updateTourFormDriverField = (event: Event, tourFormId: number) => {
+            const target = event.target as HTMLInputElement;
+            tourForms.value[tourFormId].assignedDriver.name = target.value;
+        }
+
+        const allowedDriversForTour = (tourLocationFrom: string) => {
+            return drivers.value.filter(driver => driver.location === tourLocationFrom)
+        }
+        const saveForm = (tourFormId: number) => {
+            tours.value[tourFormId] = tourForms.value[tourFormId];
+        }
 
         return {
             tours,
             drivers,
-            getAssignedDriverNameForTour
+            tourForms,
+            deleteTourForm,
+            updateTourFormDriverField,
+            allowedDriversForTour,
+            saveForm
         }
     },
 }
 </script>
 
 <template>
-  <main>
-    <ul>
-      <li v-for="(tour, index) in tours" :key="index">
-        <div>{{ tour.customer}}</div>
-        <div>{{ tour.shipmentDate}}</div>
-        <div>{{ tour.locationFrom}}</div>
-        <div>{{ tour.locationTo}}</div>
-        <div>{{ getAssignedDriverNameForTour(tour.assignedDriver)}}</div>
-      </li>
-    </ul>
+  <section>
+      <div v-for="(tourForm, index) in tourForms" :key="index">
+        <form @submit.prevent="saveForm(index)">
+            <label for="customer">Customer:</label>
+            <input type="text" id="customer" v-model="tourForm.customer">
+            
+            <label for="shipmentDate">shipmentDate:</label>
+            <input type="text" id="shipmentDate" v-model="tourForm.shipmentDate">
+            
+            <label for="locationFrom">locationFrom:</label>
+            <input type="text" id="locationFrom" v-model="tourForm.locationFrom">
 
-  </main>
+            <label for="locationTo">locationTo:</label>
+            <input type="text" id="locationTo" v-model="tourForm.locationTo">
+
+            <label for="assignedDriverName">Assigned driver:</label>
+            <select @input="updateTourFormDriverField($event, index)">
+                <option v-for="(driver, index) in allowedDriversForTour(tourForm.locationFrom)" :key="index" :value="driver.name">{{ driver.name }}</option>
+            </select>
+            
+            <button type="submit">Save Tour</button>
+            <button type="button" @click="deleteTourForm(tourForm.id)">Delete Tour</button>
+        </form>
+      </div>
+
+  </section>
 </template>

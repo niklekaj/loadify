@@ -10,7 +10,10 @@ export interface Driver {
     shipmentDate: string;
     locationFrom: string;
     locationTo: string;
-    assignedDriver: number | null;
+    assignedDriver: {
+      id: number | null,
+      name: string | null
+    };
   }
 
   export async function getDrivers(): Promise<Driver[]> {

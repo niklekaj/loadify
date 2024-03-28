@@ -5,7 +5,10 @@
         "shipmentDate": "2024-03-28",
         "locationFrom": "Mannheim",
         "locationTo": "Cologne",
-        "assignedDriver": 1
+        "assignedDriver": {
+            "id": 1,
+            "name": "Duc Hoang"
+        }
     },
     {
         "id": 2,
@@ -13,7 +16,10 @@
         "shipmentDate": "2024-03-29",
         "locationFrom": "Dortmund",
         "locationTo": "Neuss",
-        "assignedDriver": 2
+        "assignedDriver": {
+            "id": 2,
+            "name": "Vicente Suarez"
+        }
     },
     {
         "id": 3,
@@ -21,7 +27,10 @@
         "shipmentDate": "2024-03-30",
         "locationFrom": "Rommerskirchen",
         "locationTo": "Dortmund",
-        "assignedDriver": 3
+        "assignedDriver": {
+            "id": 3,
+            "name": "Kristjan Niklekaj"
+        }
     },
     {
         "id": 4,
@@ -29,7 +38,10 @@
         "shipmentDate": "2024-03-31",
         "locationFrom": "Mannheim",
         "locationTo": "Essen",
-        "assignedDriver": 1
+        "assignedDriver": {
+            "id": 1,
+            "name": "Duc Hoang"
+        }
     },
     {
         "id": 5,
@@ -37,7 +49,10 @@
         "shipmentDate": "2024-04-01",
         "locationFrom": "Dortmund",
         "locationTo": "Mannheim",
-        "assignedDriver": 2
+        "assignedDriver": {
+            "id": 2,
+            "name": "Vicente Suarez"
+        }
     },
     {
         "id": 6,
@@ -45,7 +60,10 @@
         "shipmentDate": "2024-04-02",
         "locationFrom": "Rommerskirchen",
         "locationTo": "Frankfurt",
-        "assignedDriver": 3
+        "assignedDriver": {
+            "id": 3,
+            "name": "Kristjan Niklekaj"
+        }
     },
     {
         "id": 7,
@@ -53,6 +71,9 @@
         "shipmentDate": "2024-04-03",
         "locationFrom": "Berlin",
         "locationTo": "Bayern",
-        "assignedDriver": null
+        "assignedDriver": {
+            "id": null,
+            "name": null
+        }
     }
 ]

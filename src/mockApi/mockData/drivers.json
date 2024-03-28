@@ -13,5 +13,20 @@
         "id": 3,
         "name": "Kristjan Niklekaj",
         "location": "Rommerskirchen"
+    },
+    {
+        "id": 4,
+        "name": "Dennis Jantos",
+        "location": "Dortmund"
+    },
+    {
+        "id": 5,
+        "name": "Stefanie Kraus",
+        "location": "Mannheim"
+    },
+    {
+        "id": 6,
+        "name": "First Last",
+        "location": "Rommerskirchen"
     }
 ]
