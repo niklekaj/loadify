@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "customer": "BASF",
+        "shipmentDate": "2024-03-28",
+        "locationFrom": "Mannheim",
+        "locationTo": "Cologne",
+        "assignedDriver": 1
+    },
+    {
+        "id": 2,
+        "customer": "Evonik",
+        "shipmentDate": "2024-03-29",
+        "locationFrom": "Dortmund",
+        "locationTo": "Neuss",
+        "assignedDriver": 2
+    },
+    {
+        "id": 3,
+        "customer": "Bertschi",
+        "shipmentDate": "2024-03-30",
+        "locationFrom": "Rommerskirchen",
+        "locationTo": "Dortmund",
+        "assignedDriver": 3
+    },
+    {
+        "id": 4,
+        "customer": "Alfred Talke",
+        "shipmentDate": "2024-03-31",
+        "locationFrom": "Mannheim",
+        "locationTo": "Essen",
+        "assignedDriver": 1
+    },
+    {
+        "id": 5,
+        "customer": "Lanfer Logistik",
+        "shipmentDate": "2024-04-01",
+        "locationFrom": "Dortmund",
+        "locationTo": "Mannheim",
+        "assignedDriver": 2
+    },
+    {
+        "id": 6,
+        "customer": "ABC Logistik",
+        "shipmentDate": "2024-04-02",
+        "locationFrom": "Rommerskirchen",
+        "locationTo": "Frankfurt",
+        "assignedDriver": 3
+    },
+    {
+        "id": 7,
+        "customer": "XYZ Logistik",
+        "shipmentDate": "2024-04-03",
+        "locationFrom": "Berlin",
+        "locationTo": "Bayern",
+        "assignedDriver": null
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Duc Hoang",
+        "location": "Mannheim"
+    },
+    {
+        "id": 2,
+        "name": "Vicente Suarez",
+        "location": "Dortmund"
+    },
+    {
+        "id": 3,
+        "name": "Kristjan Niklekaj",
+        "location": "Rommerskirchen"
+    }
+]
