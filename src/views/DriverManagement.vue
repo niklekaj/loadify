@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="driver">
+    <h1>This is a page about the driver view</h1>
   </div>
 </template>
 
