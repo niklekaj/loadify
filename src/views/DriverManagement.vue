@@ -1,6 +1,35 @@
+<script lang="ts">
+import { type Driver } from '@/mockApi/index'
+import { fetchDrivers } from '@/services/drivers'
+import { ref, onMounted } from 'vue'
+
+export default {
+  setup() {
+      let drivers = ref<Driver[]>([])
+
+      onMounted(async () => {
+          try {
+              drivers.value = await fetchDrivers();
+          } catch (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+
+      return {
+          drivers,
+      }
+  },
+}
+</script>
+
 <template>
   <div class="driver">
-    <h1>This is a page about the driver view</h1>
+    <ul>
+      <li v-for="(driver, index) in drivers" :key="index">
+        <div>{{ driver.name}}</div>
+        <div>{{ driver.location}}</div>
+      </li>
+    </ul>
   </div>
 </template>
 

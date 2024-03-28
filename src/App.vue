@@ -6,8 +6,8 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/tour">Tour Management</RouterLink>
-        <RouterLink to="/driver">Driver Management</RouterLink>
+        <RouterLink to="/tours">Tour Management</RouterLink>
+        <RouterLink to="/drivers">Driver Management</RouterLink>
       </nav>
     </div>
   </header>
