@@ -46,7 +46,7 @@ export default {
         const allowedDriversForTour = (tourLocationFrom: string) => {
             return drivers.value.filter(driver => driver.location === tourLocationFrom)
         }
-        const saveForm = (tourFormId: number) => {
+        const saveTourForms = (tourFormId: number) => {
             tours.value[tourFormId] = tourForms.value[tourFormId];
         }
 
@@ -57,7 +57,7 @@ export default {
             deleteTourForm,
             updateTourFormDriverField,
             allowedDriversForTour,
-            saveForm
+            saveTourForms
         }
     },
 }
@@ -66,7 +66,7 @@ export default {
 <template>
   <section>
       <div v-for="(tourForm, index) in tourForms" :key="index">
-        <form @submit.prevent="saveForm(index)">
+        <form @submit.prevent="saveTourForms(index)">
             <label for="customer">Customer:</label>
             <input type="text" id="customer" v-model="tourForm.customer">
             
