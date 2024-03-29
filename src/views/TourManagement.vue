@@ -15,24 +15,17 @@ export default {
             try {
                 tours.value = await fetchTours();
                 drivers.value = await fetchDrivers();
-                tours.value.forEach(tour => tourForms.value.push({
-                    id: tour.id,
-                    customer: tour.customer,
-                    shipmentDate: tour.shipmentDate,
-                    locationFrom: tour.locationFrom,
-                    locationTo: tour.locationTo,
-                    assignedDriver: {
-                        id: tour.id,
-                        name: tour.assignedDriver.name
-                    },
-                }))
+                tourForms.value = tours.value
+                console.log("1111: ", tours.value)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         });
         
         const deleteTourForm = (tourFormId: number) => {
-            tourForms.value = tourForms.value.filter(tourForm => tourForm.id !== tourFormId);
+            tours.value = tours.value.filter(t => t.id !== tourFormId);
+            console.log(tours.value)
+            tourForms.value = tours.value;
         };
 
         const updateTourFormDriverField = (event: Event, tourFormId: number) => {
