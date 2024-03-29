@@ -15,7 +15,17 @@ export default {
             try {
                 tours.value = await fetchTours();
                 drivers.value = await fetchDrivers();
-                tourForms.value = tours.value
+                tours.value.forEach(tour => tourForms.value.push({
+                    id: tour.id,
+                    customer: tour.customer,
+                    shipmentDate: tour.shipmentDate,
+                    locationFrom: tour.locationFrom,
+                    locationTo: tour.locationTo,
+                    assignedDriver: {
+                        id: tour.id,
+                        name: tour.assignedDriver.name
+                    },
+                }))
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
