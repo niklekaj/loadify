@@ -1,0 +1,68 @@
+.driver {
+    flex-direction: row;
+    &_field {
+      display: flex;
+      flex-direction: column;
+      margin: 4px 0;
+
+      &-label {
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+    }
+
+    &--save {
+      margin: 16px 0px;
+    }
+
+    &_horizontal-line {
+      margin: 12px 0;
+      border-color:#00bd7e;
+    }
+  }
+
+  section, .driver {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    height: 30px;
+  }
+
+  button {
+    align-self: center;
+    height: 30px;
+    width: 40%;
+    border: 2px solid black;
+    border-radius: 4px;
+  }
+
+  @media screen and (min-width: 768px) {
+    section {
+      max-width: 900px;
+    }
+
+    .driver {
+      flex-direction: row;
+      justify-content: space-between;
+      
+      &_field {
+        flex-direction: row;
+        align-items: center;
+        margin-right: 16px;
+
+        &-label {
+          margin-right: 16px;
+        }
+      }
+
+      &_horizontal-line {
+        display: none;
+      }
+    }
+
+    button {
+      width: 30%;
+    }
+  }

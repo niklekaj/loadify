@@ -50,28 +50,25 @@ export default {
 
 <template>
   <section>
-      <div v-for="driverForm in driverForms" :key="driverForm.id">
-        <form @submit.prevent="saveDriverForms(driverForm.id)">
-            <label for="name">Customer:</label>
-            <input type="text" id="name" v-model="driverForm.name">
+        <form v-for="driverForm in driverForms" :key="driverForm.id" @submit.prevent="saveDriverForms(driverForm.id)" class="driver">
+            <div class="driver_field">
+              <label class="driver_field-label" for="name">Customer:</label>
+              <input type="text" id="name" v-model="driverForm.name">
+            </div>
             
-            <label for="location">location:</label>
-            <input type="text" id="location" v-model="driverForm.location">
+            <div class="driver_field">
+              <label class="driver_field-label" for="location">Location:</label>
+              <input type="text" id="location" v-model="driverForm.location">
+            </div>
             
-            <button type="submit">Save Driver</button>
+            <button class="driver--save" type="submit">Save Driver</button>
+            <hr class="driver_horizontal-line" />
         </form>
-      </div>
       <button @click="addNewDriverForm()">Add Driver</button>
 
   </section>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+<style scoped lang="scss">
+  @import "./DriverManagement.scss"
 </style>
