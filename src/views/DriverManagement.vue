@@ -64,6 +64,7 @@ export default {
             <button class="driver--save" type="submit">Save Driver</button>
             <hr class="driver_horizontal-line" />
         </form>
+        <!-- @TODO - This button for adding a new driver/tour could be a good example of a shared component -->
       <button @click="addNewDriverForm()">Add Driver</button>
 
   </section>

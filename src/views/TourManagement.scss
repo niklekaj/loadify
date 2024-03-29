@@ -1,5 +1,7 @@
-.driver {
-    flex-direction: row;
+.tour {
+    display: flex;
+    flex-direction: column;
+
     &_field {
       display: flex;
       flex-direction: column;
@@ -19,21 +21,24 @@
       margin: 12px 0;
       border-color:#00bd7e;
     }
-  }
 
-  section, .driver {
+    &_buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 16px 0;
+    }
+}
+
+section {
     display: flex;
     flex-direction: column;
-  }
-
-  section {
     height: 100%;
     justify-content: center;
-  }
+}
 
-  input {
+input {
     height: 30px;
-  }
+}
 
   button {
     align-self: center;
@@ -43,15 +48,22 @@
     border-radius: 4px;
   }
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+    section {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 
-    .driver {
-      flex-direction: row;
+    .tour {
+      flex-direction: column;
       justify-content: space-between;
+      margin-bottom: 36px;
       
       &_field {
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
         margin-right: 16px;
 
         &-label {
@@ -67,4 +79,4 @@
     button {
       width: 30%;
     }
-  }
+}

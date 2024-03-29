@@ -65,29 +65,44 @@ export default {
 
 <template>
   <section>
-      <div v-for="(tourForm, index) in tourForms" :key="index">
-        <form @submit.prevent="saveTourForms(index)">
-            <label for="customer">Customer:</label>
-            <input type="text" id="customer" v-model="tourForm.customer">
+        <form v-for="(tourForm, index) in tourForms" :key="index" @submit.prevent="saveTourForms(index)" class="tour">
+            <div class="tour_field">
+                <label class="tour_field-label" for="customer">Customer:</label>
+                <input type="text" id="customer" v-model="tourForm.customer">
+            </div>
             
-            <label for="shipmentDate">shipmentDate:</label>
-            <input type="text" id="shipmentDate" v-model="tourForm.shipmentDate">
+            <div class="tour_field">
+                <label class="tour_field-label" for="shipmentDate">ShipmentDate:</label>
+                <input type="text" id="shipmentDate" v-model="tourForm.shipmentDate">
+            </div>
             
-            <label for="locationFrom">locationFrom:</label>
-            <input type="text" id="locationFrom" v-model="tourForm.locationFrom">
+            <div class="tour_field">
+                <label class="tour_field-label" for="locationFrom">LocationFrom:</label>
+                <input type="text" id="locationFrom" v-model="tourForm.locationFrom">
+            </div>
 
-            <label for="locationTo">locationTo:</label>
-            <input type="text" id="locationTo" v-model="tourForm.locationTo">
+            <div class="tour_field">
+                <label class="tour_field-label" for="locationTo">LocationTo:</label>
+                <input type="text" id="locationTo" v-model="tourForm.locationTo">
+            </div>
 
-            <label for="assignedDriverName">Assigned driver:</label>
-            <select @input="updateTourFormDriverField($event, index)">
-                <option v-for="(driver, index) in allowedDriversForTour(tourForm.locationFrom)" :key="index" :value="driver.name">{{ driver.name }}</option>
-            </select>
+            <div class="tour_field">
+                <label class="tour_field-label" for="assignedDriverName">Assigned driver:</label>
+                <select @input="updateTourFormDriverField($event, index)">
+                    <option v-for="(driver, index) in allowedDriversForTour(tourForm.locationFrom)" :key="index" :value="driver.name">{{ driver.name }}</option>
+                </select>
+            </div>
             
-            <button type="submit">Save Tour</button>
-            <button type="button" @click="deleteTourForm(tourForm.id)">Delete Tour</button>
+            <div class="tour_buttons">
+                <button type="submit">Save Tour</button>
+                <button type="button" @click="deleteTourForm(tourForm.id)">Delete Tour</button>
+            </div>
+            <hr class="tour_horizontal-line" />
         </form>
-      </div>
 
   </section>
 </template>
+
+<style scoped lang="scss">
+  @import "./TourManagement.scss"
+</style>
