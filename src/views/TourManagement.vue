@@ -16,15 +16,15 @@ export default {
                 tours.value = await fetchTours();
                 drivers.value = await fetchDrivers();
                 tourForms.value = tours.value
-                console.log("1111: ", tours.value)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         });
         
         const deleteTourForm = (tourFormId: number) => {
+            // mocking the communication with the BE since no endpoint is being called and therefore no real response
             tours.value = tours.value.filter(t => t.id !== tourFormId);
-            console.log(tours.value)
+
             tourForms.value = tours.value;
         };
 
