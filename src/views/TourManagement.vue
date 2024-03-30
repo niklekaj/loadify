@@ -1,10 +1,14 @@
 <script lang="ts">
+import { ref, onMounted } from 'vue'
 import { type Tour, type Driver, } from '@/mockApi/index'
 import { fetchTours } from '@/services/tours'
 import { fetchDrivers } from '@/services/drivers'
-import { ref, onMounted } from 'vue'
+import AddButton from '@/components/AddButton.vue';
 
 export default {
+    components: {
+        AddButton
+    },
     setup() {
         let tours = ref<Tour[]>([])
         let drivers = ref<Driver[]>([])
@@ -40,15 +44,31 @@ export default {
 
         const updateTourFormDriverField = (event: Event, tourFormId: number) => {
             const target = event.target as HTMLInputElement;
-            tourForms.value[tourFormId].assignedDriver.name = target.value;
+            tourForms.value[tourFormId - 1].assignedDriver.name = target.value;
+            tourForms.value[tourFormId - 1].assignedDriver.id = drivers.value.find(d => d.name === target.value)?.id || null;
         }
 
         const allowedDriversForTour = (tourLocationFrom: string) => {
             return drivers.value.filter(driver => driver.location === tourLocationFrom)
         }
+
         const saveTourForms = (tourFormId: number) => {
             tours.value[tourFormId] = tourForms.value[tourFormId];
         }
+
+        const addNewTourForm = () => {
+        tourForms.value.push({
+            id: tourForms.value.length + 1,
+            customer: '',
+            shipmentDate: '',
+            locationFrom: '',
+            locationTo: '',
+            assignedDriver: {
+                id: null,
+                name: ''
+            },
+        })
+      }
 
         return {
             tours,
@@ -57,7 +77,8 @@ export default {
             deleteTourForm,
             updateTourFormDriverField,
             allowedDriversForTour,
-            saveTourForms
+            saveTourForms,
+            addNewTourForm
         }
     },
 }
@@ -88,7 +109,8 @@ export default {
 
             <div class="tour_field">
                 <label class="tour_field-label" for="assignedDriverName">Assigned driver:</label>
-                <select @input="updateTourFormDriverField($event, index)">
+                <select @input="updateTourFormDriverField($event, tourForm.id)">
+                    <option value="" disabled :selected="!allowedDriversForTour(tourForm.locationFrom).length">Select an option</option>
                     <option v-for="(driver, index) in allowedDriversForTour(tourForm.locationFrom)" :key="index" :value="driver.name" id="driverName">{{ driver.name }}</option>
                 </select>
             </div>
@@ -99,6 +121,8 @@ export default {
             </div>
             <hr class="tour_horizontal-line" />
         </form>
+        <!-- <button @click="addNewTourForm()">Add Tour</button> -->
+        <AddButton @add="addNewTourForm()" buttonText="Add Tour" />
 
   </section>
 </template>
