@@ -1,9 +1,11 @@
 .driver {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
     &_field {
       display: flex;
       flex-direction: column;
       margin: 4px 0;
+      justify-content: space-between;
 
       &-label {
         font-weight: bold;
@@ -21,23 +23,19 @@
     }
   }
 
-  section, .driver {
+  section {
     display: flex;
+    height: 100%;
     flex-direction: column;
   }
 
-  section {
-    height: 100%;
-    justify-content: center;
-  }
-
   input {
-    height: 30px;
+    height: 32px;
   }
 
   button {
     align-self: center;
-    height: 30px;
+    min-height: 32px;
     width: 40%;
     border: 2px solid black;
     border-radius: 4px;
@@ -45,8 +43,14 @@
 
   @media screen and (min-width: 768px) {
 
-    .driver {
+    section {
       flex-direction: row;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .driver {
+      flex-direction: column;
       justify-content: space-between;
       
       &_field {
