@@ -29,13 +29,13 @@ describe('TourManagement', () => {
     cy.get('input').eq(3).should('have.attr', 'id', 'locationTo')
   })
 
-  it('renders "Location To" label with form field', () => {
+  it('renders "Assigned Driver" label with select field', () => {
     cy.mount(TourManagement, {})
-    cy.get('.tour_field-label').should('contain', 'Location To')
+    cy.get('.tour_field').eq(4).find('label[for="assignedDriverName"]').should('contain', 'Assigned driver:')
     cy.get('select').then((select) => {
         const selectElement = select[0];
         const options = selectElement.options;
-        const optionElement = options[0];
+        const optionElement = options[1];
 
         const attributeValue = optionElement.getAttribute('id');
         cy.log(`The value of the data-custom-attribute is: ${attributeValue}`);

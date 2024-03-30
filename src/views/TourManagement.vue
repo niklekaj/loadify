@@ -123,7 +123,7 @@ export default {
             
             <div class="tour_buttons">
                 <button type="submit">Save Tour</button>
-                <button type="button" @click="deleteTourForm(tourForm.id)">Delete Tour</button>
+                <button class="delete" type="button" @click="deleteTourForm(tourForm.id)">Delete Tour</button>
             </div>
             <hr class="tour_horizontal-line" />
         </form>
