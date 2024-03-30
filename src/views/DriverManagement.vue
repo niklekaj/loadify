@@ -58,7 +58,7 @@ export default {
   <section>
         <form v-for="driverForm in driverForms" :key="driverForm.id" @submit.prevent="saveDriverForms(driverForm.id)" class="driver">
             <div class="driver_field">
-              <label class="driver_field-label" for="name">Customer:</label>
+              <label class="driver_field-label" for="name">Driver:</label>
               <input type="text" id="name" v-model="driverForm.name">
             </div>
             

@@ -5,9 +5,9 @@ describe('DriverManagement', () => {
     cy.mount(DriverManagement, {})
   })
 
-  it('renders "Customer" label with form field', () => {
+  it('renders "Driver" label with form field', () => {
     cy.mount(DriverManagement, {})
-    cy.get('.driver_field-label').should('contain', 'Customer')
+    cy.get('.driver_field-label').should('contain', 'Driver')
     cy.get('input').should('have.attr', 'id', 'name')
   })
 
