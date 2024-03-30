@@ -53,7 +53,13 @@ export default {
         }
 
         const saveTourForms = (tourFormId: number) => {
-            tours.value[tourFormId] = tourForms.value[tourFormId];
+            if(tours.value.find(d => d.id === tourFormId)){
+                tours.value = tours.value.filter(d => d.id !== tourFormId);
+                tours.value.push({...tourForms.value[tourFormId - 1]});
+                return;
+            }
+
+            tours.value.push({...tourForms.value[tourFormId - 1]})
         }
 
         const addNewTourForm = () => {
@@ -86,7 +92,7 @@ export default {
 
 <template>
   <section>
-        <form v-for="(tourForm, index) in tourForms" :key="index" @submit.prevent="saveTourForms(index)" class="tour">
+        <form v-for="(tourForm, index) in tourForms" :key="index" @submit.prevent="saveTourForms(tourForm.id)" class="tour">
             <div class="tour_field">
                 <label class="tour_field-label" for="customer">Customer:</label>
                 <input type="text" id="customer" v-model="tourForm.customer">
@@ -110,7 +116,7 @@ export default {
             <div class="tour_field">
                 <label class="tour_field-label" for="assignedDriverName">Assigned driver:</label>
                 <select @input="updateTourFormDriverField($event, tourForm.id)">
-                    <option value="" disabled :selected="!allowedDriversForTour(tourForm.locationFrom).length">Select an option</option>
+                    <option value="" disabled :selected="!tourForm.assignedDriver.name">Select an option</option>
                     <option v-for="(driver, index) in allowedDriversForTour(tourForm.locationFrom)" :key="index" :value="driver.name" id="driverName">{{ driver.name }}</option>
                 </select>
             </div>

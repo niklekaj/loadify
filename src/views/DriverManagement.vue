@@ -35,11 +35,13 @@ export default {
 
       const saveDriverForms = (driverFormId: number) => {
         if(drivers.value.find(d => d.id === driverFormId)){
-          drivers.value[driverFormId] = driverForms.value[driverFormId];
+          drivers.value = drivers.value.filter(d => d.id !== driverFormId);
+          drivers.value.push({...driverForms.value[driverFormId - 1]});
+
           return
         }
 
-        drivers.value.push(driverForms.value[driverFormId - 1])
+        drivers.value.push({...driverForms.value[driverFormId - 1]})
       }
 
       return {
