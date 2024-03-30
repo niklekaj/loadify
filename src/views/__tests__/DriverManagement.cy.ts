@@ -25,10 +25,10 @@ describe('DriverManagement', () => {
 
   it('renders "Add Driver" button', () => {
     cy.mount(DriverManagement, {})
-    cy.get('button').should('contain', 'Add Driver')
+    cy.get('button').last().should('contain', 'Add Driver')
     cy.contains('Add Driver')
-      .then(($btn) => {
-        const button = $btn?.[0];
+      .then((btn) => {
+        const button = btn?.[0];
         expect(button, 'checking for click event listener').to.have.property('onclick');
       });
   })

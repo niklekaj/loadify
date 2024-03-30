@@ -72,24 +72,24 @@ export default {
             </div>
             
             <div class="tour_field">
-                <label class="tour_field-label" for="shipmentDate">ShipmentDate:</label>
+                <label class="tour_field-label" for="shipmentDate">Shipment Date:</label>
                 <input type="text" id="shipmentDate" v-model="tourForm.shipmentDate">
             </div>
             
             <div class="tour_field">
-                <label class="tour_field-label" for="locationFrom">LocationFrom:</label>
+                <label class="tour_field-label" for="locationFrom">Location From:</label>
                 <input type="text" id="locationFrom" v-model="tourForm.locationFrom">
             </div>
 
             <div class="tour_field">
-                <label class="tour_field-label" for="locationTo">LocationTo:</label>
+                <label class="tour_field-label" for="locationTo">Location To:</label>
                 <input type="text" id="locationTo" v-model="tourForm.locationTo">
             </div>
 
             <div class="tour_field">
                 <label class="tour_field-label" for="assignedDriverName">Assigned driver:</label>
                 <select @input="updateTourFormDriverField($event, index)">
-                    <option v-for="(driver, index) in allowedDriversForTour(tourForm.locationFrom)" :key="index" :value="driver.name">{{ driver.name }}</option>
+                    <option v-for="(driver, index) in allowedDriversForTour(tourForm.locationFrom)" :key="index" :value="driver.name" id="driverName">{{ driver.name }}</option>
                 </select>
             </div>
             
