@@ -1,92 +1,92 @@
 .tour {
+  display: flex;
+  flex-direction: column;
+
+  &_field {
     display: flex;
     flex-direction: column;
+    margin: 4px 0;
 
-    &_field {
-      display: flex;
-      flex-direction: column;
-      margin: 4px 0;
-
-      &-label {
-        font-weight: bold;
-        margin-bottom: 4px;
-      }
+    &-label {
+      font-weight: bold;
+      margin-bottom: 4px;
     }
+  }
 
-    &--save {
-      margin: 16px 0px;
-    }
+  &--save {
+    margin: 16px 0px;
+  }
 
-    &_horizontal-line {
-      margin: 12px 0;
-      border-color:#00bd7e;
-    }
+  &_horizontal-line {
+    margin: 12px 0;
+    border-color: #00bd7e;
+  }
 
-    &_buttons {
-        display: flex;
-        justify-content: space-between;
-        margin: 16px 0;
-    }
+  &_buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+  }
 }
 
 section {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
 }
 
 input {
-    height: 30px;
+  height: 30px;
 }
 
-  button {
-    align-self: center;
-    height: 30px;
-    width: 40%;
-    border: 2px solid black;
-    border-radius: 4px;
-    cursor: pointer;
+button {
+  align-self: center;
+  height: 30px;
+  width: 40%;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
 
-    &:hover {
-      background-color: #00bd7e;
-    }
+  &:hover {
+    background-color: #00bd7e;
   }
-  
-  .delete:hover {
-    background-color: #ec5b50;
-  }
+}
+
+.delete:hover {
+  background-color: #ec5b50;
+}
 
 @media screen and (min-width: 768px) {
-    section {
-        flex-direction: row;
-        justify-content: start;
-        flex-wrap: wrap;
-        gap: 32px;
-    }
+  section {
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
 
-    .tour {
-      flex-direction: column;
+  .tour {
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 36px;
+
+    &_field {
+      flex-direction: row;
+      align-items: center;
       justify-content: space-between;
-      margin-bottom: 36px;
-      
-      &_field {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+      margin-right: 16px;
+
+      &-label {
         margin-right: 16px;
-
-        &-label {
-          margin-right: 16px;
-        }
-      }
-
-      &_horizontal-line {
-        display: none;
       }
     }
 
-    button {
-      width: 30%;
+    &_horizontal-line {
+      display: none;
     }
+  }
+
+  button {
+    width: 30%;
+  }
 }

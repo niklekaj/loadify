@@ -1,79 +1,78 @@
 .driver {
+  display: flex;
+  flex-direction: column;
+  &_field {
     display: flex;
     flex-direction: column;
+    margin: 4px 0;
+    justify-content: space-between;
+
+    &-label {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+  }
+
+  &--save {
+    margin: 16px 0px;
+  }
+
+  &_horizontal-line {
+    margin: 12px 0;
+    border-color: #00bd7e;
+  }
+}
+
+section {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+input {
+  height: 32px;
+}
+
+button {
+  align-self: center;
+  min-height: 32px;
+  width: 40%;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #00bd7e;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .driver {
+    flex-direction: column;
+    justify-content: space-between;
+
     &_field {
-      display: flex;
-      flex-direction: column;
-      margin: 4px 0;
-      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      margin-right: 16px;
 
       &-label {
-        font-weight: bold;
-        margin-bottom: 4px;
+        margin-right: 16px;
       }
-    }
-
-    &--save {
-      margin: 16px 0px;
     }
 
     &_horizontal-line {
-      margin: 12px 0;
-      border-color:#00bd7e;
+      display: none;
     }
-  }
-
-  section {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-  }
-
-  input {
-    height: 32px;
   }
 
   button {
-    align-self: center;
-    min-height: 32px;
-    width: 40%;
-    border: 2px solid black;
-    border-radius: 4px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #00bd7e;
-    }
+    width: 30%;
   }
-
-  @media screen and (min-width: 768px) {
-
-    section {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 32px;
-    }
-
-    .driver {
-      flex-direction: column;
-      justify-content: space-between;
-      
-      &_field {
-        flex-direction: row;
-        align-items: center;
-        margin-right: 16px;
-
-        &-label {
-          margin-right: 16px;
-        }
-      }
-
-      &_horizontal-line {
-        display: none;
-      }
-    }
-
-    button {
-      width: 30%;
-    }
-  }
+}

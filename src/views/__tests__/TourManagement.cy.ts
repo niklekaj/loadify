@@ -31,28 +31,30 @@ describe('TourManagement', () => {
 
   it('renders "Assigned Driver" label with select field', () => {
     cy.mount(TourManagement, {})
-    cy.get('.tour_field').eq(4).find('label[for="assignedDriverName"]').should('contain', 'Assigned driver:')
+    cy.get('.tour_field')
+      .eq(4)
+      .find('label[for="assignedDriverName"]')
+      .should('contain', 'Assigned driver:')
     cy.get('select').then((select) => {
-        const selectElement = select[0];
-        const options = selectElement.options;
-        const optionElement = options[1];
+      const selectElement = select[0]
+      const options = selectElement.options
+      const optionElement = options[1]
 
-        const attributeValue = optionElement.getAttribute('id');
-        cy.log(`The value of the data-custom-attribute is: ${attributeValue}`);
-        cy.wrap(attributeValue).should('eq', 'driverName');
-      });
-  
+      const attributeValue = optionElement.getAttribute('id')
+      cy.log(`The value of the data-custom-attribute is: ${attributeValue}`)
+      cy.wrap(attributeValue).should('eq', 'driverName')
+    })
   })
 
   it('renders "Save Tour" & "Delete Tour" buttons', () => {
     cy.mount(TourManagement, {})
 
-    const tourButtonsWrapper = cy.get('.tour_buttons');
+    const tourButtonsWrapper = cy.get('.tour_buttons')
 
     tourButtonsWrapper.first().within(() => {
-      cy.get('button').contains('Save Tour').should('have.attr', 'type', 'submit');
+      cy.get('button').contains('Save Tour').should('have.attr', 'type', 'submit')
 
-      cy.get('button').contains('Delete Tour').should('have.attr', 'type', 'button');
-    });
+      cy.get('button').contains('Delete Tour').should('have.attr', 'type', 'button')
+    })
   })
 })
