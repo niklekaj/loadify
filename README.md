@@ -26,13 +26,25 @@ npm install
 npm run dev
 ```
 
+### Type-Check
+
+```sh
+npm run type-check
+```
+
 ### Type-Check, Compile and Minify for Production
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Run Unit (Component) Tests with Cypress
+
+```sh
+npm run test:unit:gui
+```
+
+### Run Unit (Component) Tests in the terminal
 
 ```sh
 npm run test:unit
