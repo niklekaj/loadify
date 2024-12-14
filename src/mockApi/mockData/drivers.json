@@ -1,32 +1,32 @@
 [
-    {
-        "id": 1,
-        "name": "Duc Hoang",
-        "location": "Mannheim"
-    },
-    {
-        "id": 2,
-        "name": "Vicente Suarez",
-        "location": "Dortmund"
-    },
-    {
-        "id": 3,
-        "name": "Kristjan Niklekaj",
-        "location": "Rommerskirchen"
-    },
-    {
-        "id": 4,
-        "name": "Dennis Jantos",
-        "location": "Dortmund"
-    },
-    {
-        "id": 5,
-        "name": "Stefanie Kraus",
-        "location": "Mannheim"
-    },
-    {
-        "id": 6,
-        "name": "First Last",
-        "location": "Rommerskirchen"
-    }
+  {
+    "id": 1,
+    "name": "Liam Spencer",
+    "location": "Mannheim"
+  },
+  {
+    "id": 2,
+    "name": "Noah Martinez",
+    "location": "Dortmund"
+  },
+  {
+    "id": 3,
+    "name": "Ethan Johnson",
+    "location": "Rommerskirchen"
+  },
+  {
+    "id": 4,
+    "name": "Mason Carter",
+    "location": "Dortmund"
+  },
+  {
+    "id": 5,
+    "name": "Sophia Turner",
+    "location": "Mannheim"
+  },
+  {
+    "id": 6,
+    "name": "Emma Brooks",
+    "location": "Rommerskirchen"
+  }
 ]
