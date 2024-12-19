@@ -19,7 +19,7 @@ describe('TourManagement', () => {
 
   it('renders "Location From" label with form field', () => {
     cy.mount(TourManagement, {})
-    cy.get('.tour_field-label').should('contain', 'Location From')
+    cy.get('.tour_field-labellll').should('contain', 'Location From')
     cy.get('input').eq(2).should('have.attr', 'id', 'locationFrom')
   })
 
